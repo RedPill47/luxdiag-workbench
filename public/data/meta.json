@@ -1,0 +1,73 @@
+{
+  "retrievers": {
+    "bm25_word": {"label": "BM25 (word)", "family": "lexical", "desc": "Classic word-level lexical search. A baseline that struggles with Luxembourgish spelling variation."},
+    "bm25_char": {"label": "BM25 (char 3\u20135-gram)", "family": "lexical", "desc": "Lexical search over character n-grams. Matches sub-word fragments, so it is robust to spelling variation."},
+    "dense_mE5": {"label": "Dense (mE5)", "family": "dense", "desc": "Off-the-shelf multilingual embedding retriever (multilingual-E5)."},
+    "dense_bge_m3": {"label": "Dense (BGE-M3)", "family": "dense", "desc": "Off-the-shelf multilingual embedding retriever (BGE-M3)."},
+    "hybrid_rrf_char": {"label": "Hybrid RRF (char)", "family": "hybrid", "desc": "Combines character-BM25 and dense results by reciprocal-rank fusion."},
+    "hybrid_w_char": {"label": "Hybrid weighted (char)", "family": "hybrid", "desc": "Weighted mix of character-BM25 and dense retrieval. The strongest retriever on this corpus."}
+  },
+  "models": {
+    "claude_opus_4_8": {"label": "Claude Opus 4.8"},
+    "gpt_5_5": {"label": "GPT-5.5"},
+    "claude_sonnet_4_6": {"label": "Claude Sonnet 4.6"},
+    "deepseek_v4_pro": {"label": "DeepSeek v4-pro"}
+  },
+  "annotators": {
+    "gold": {"label": "Gold", "type": "reference"},
+    "luxembert": {"label": "LuxemBERT", "type": "encoder"},
+    "modernbert": {"label": "ModernBERT", "type": "encoder"},
+    "xlm_roberta": {"label": "XLM-RoBERTa", "type": "encoder"},
+    "claude_opus_4_6": {"label": "Claude Opus 4.6", "type": "llm"},
+    "gpt_5_4": {"label": "GPT-5.4", "type": "llm"},
+    "deepseek": {"label": "DeepSeek", "type": "llm"}
+  },
+  "cognitive_types": {
+    "retrieve_direct_fact": {"label": "Retrieve: direct fact", "desc": "The answer is stated directly in the text (PIRLS: retrieve explicitly stated information)."},
+    "inferential_reasoning": {"label": "Inferential reasoning", "desc": "The answer requires combining clues to make a straightforward inference (PIRLS)."},
+    "interpretive_comprehension": {"label": "Interpretive comprehension", "desc": "The answer requires interpreting and integrating ideas across the text (PIRLS)."},
+    "evaluative_reasoning": {"label": "Evaluative reasoning", "desc": "The answer requires evaluating content, language, or the author's choices (PIRLS)."}
+  },
+  "settings": {
+    "closed_book": {"label": "Closed-book", "desc": "The model answers from its own parameters, with no text provided. A contamination/calibration control."},
+    "full_text_oracle": {"label": "Full-text oracle", "desc": "The model is given the entire correct source text. Removes retrieval failure; an upper bound."},
+    "rag_text_restricted": {"label": "RAG (text-restricted)", "desc": "Retrieval is limited to chunks from the correct source text, then the model answers."},
+    "rag_open_corpus": {"label": "RAG (open-corpus)", "desc": "Retrieval runs over all 16 texts, so it can surface passages from the wrong story. The hardest, most realistic setting."},
+    "text_restricted": {"label": "Text-restricted", "desc": "Retrieval scope: search only within the current text."},
+    "open_corpus": {"label": "Open-corpus", "desc": "Retrieval scope: search across the whole 16-text corpus."}
+  },
+  "retrieval_trap_classes": {
+    "critical_only":   {"label": "Critical only", "color": "green", "desc": "The retriever surfaced the evidence for the correct answer, and no distractor."},
+    "both":            {"label": "Critical + distractor", "color": "amber", "desc": "The retriever surfaced both the correct evidence and a distractor. Accuracy is highest here (0.80)."},
+    "distractor_only": {"label": "Distractor only", "color": "red", "desc": "The retriever surfaced a distractor but missed the correct evidence. The trap: accuracy falls."},
+    "neither":         {"label": "Neither", "color": "gray", "desc": "The retriever surfaced neither the correct evidence nor a distractor. Accuracy is lowest (0.48)."}
+  },
+  "regimes": {
+    "1": {"label": "Surface patterns", "note": "Encoders dominate", "desc": "Spelling and morphology cues (n-rule, false friends). Fine-tuned encoders win clearly."},
+    "2": {"label": "Discourse / syntax", "note": "Pretraining corpus decides", "desc": "Coreference and clause structure. Mixed results, dependent on the model's pretraining."},
+    "3": {"label": "World knowledge", "note": "LLMs retain the edge", "desc": "Loanwords and rare/archaic vocabulary. Large LLMs keep an edge over small encoders."}
+  },
+  "categories": {
+    "ortho-phono-diverge": {"label": "Ortho-phono divergence", "regime": 1, "excluded": false, "desc": "A word whose spelling diverges from its pronunciation, or that is spelled inconsistently."},
+    "morph-n-rule":        {"label": "n-rule (Eifeler Regel)", "regime": 1, "excluded": false, "desc": "The Eifeler Regel: final -n is dropped or kept depending on the next sound. A hallmark Luxembourgish spelling rule."},
+    "lex-false-friend":    {"label": "False friend", "regime": 1, "excluded": false, "desc": "A word that looks like a German or French word but means something different."},
+    "syn-verb-sep":        {"label": "Separable verb", "regime": 1, "excluded": false, "desc": "A verb whose prefix detaches and moves elsewhere in the clause."},
+    "syn-verb-final":      {"label": "Verb-final clause", "regime": 2, "excluded": false, "desc": "A subordinate clause with the finite verb at the end (Germanic word order)."},
+    "disc-coref-ambig":    {"label": "Ambiguous coreference", "regime": 2, "excluded": false, "desc": "A pronoun or reference whose antecedent is not obvious."},
+    "lex-loan-de":         {"label": "German loanword", "regime": 3, "excluded": false, "desc": "A word borrowed from German."},
+    "lex-loan-fr":         {"label": "French loanword", "regime": 3, "excluded": false, "desc": "A word borrowed from French."},
+    "lex-rare-zls":        {"label": "Rare/archaic word", "regime": 3, "excluded": false, "desc": "A rare, dialectal, or archaic Luxembourgish word."},
+    "lex-idiom-zls":       {"label": "Idiom", "regime": 3, "excluded": true, "desc": "A Luxembourgish idiom. Excluded from training: too few examples."},
+    "syn-embedded":        {"label": "Embedded clause", "regime": 2, "excluded": true, "desc": "A deeply embedded clause. Excluded from training: too few examples."}
+  },
+  "division_of_labour": {
+    "title": "Division of labour",
+    "items": [
+      {"regime": 1, "label": "Orthographic divergence / n-rule", "note": "(regime 1): recovered by the encoders, missed by the LLMs."},
+      {"regime": 3, "label": "French loanwords", "note": "(regime 3, e.g. Café, Supermarché, Gare): recovered by the LLMs, missed by the encoders."}
+    ]
+  },
+  "flags": {
+    "live_retrieval_enabled": true
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "_note": "Reviewer-facing English scaffolding: onboarding, guided cases, and glosses. Glosses are machine-assisted and flagged for native (LU) verification before camera-ready.",
+  "intro": {
+    "title": "What is the LuxDiag Workbench?",
+    "tagline": "An interactive lens on how retrieval and annotation models actually behave on Luxembourgish text.",
+    "paragraphs": [
+      "Completed NLP studies usually ship as static tables in a PDF. The interesting part, the per-example diagnosis (which passage a retriever surfaced, which linguistic phenomenon a model missed) is lost. This workbench brings that diagnosis back and makes it clickable.",
+      "It overlays two completed Luxembourgish studies on the same 16 texts using one shared character-offset coordinate system. For any question you can see, side by side, exactly what a retriever returned, which evidence supports or distracts from the answer, how four LLMs answered, and how encoders and LLMs annotate 11 Luxembourgish-specific linguistic phenomena.",
+      "Luxembourgish is a low-resource language with variable spelling and heavy French/German mixing, so these behaviours are worth inspecting directly rather than trusting a single aggregate number. The passages are in Luxembourgish; this guide and the highlights below let you follow along without reading the language."
+    ],
+    "how_to_read": [
+      "Green = evidence that supports the correct answer (a critical span).",
+      "Red = a distractor: text that plausibly supports a wrong answer.",
+      "Every technical term is explained: click any coloured tag on a question, or open the Glossary button (top right), for a plain-English definition and example.",
+      "Want to use it on your own data? Click “✎ Use your own data” at the top — paste any passage, or upload your own dataset, and every panel runs on it live in your browser.",
+      "Pick a question on the left, or start with a guided example below."
+    ]
+  },
+  "text_glosses": {
+    "text1":  {"title_en": "Catherine, I am so happy", "summary_en": "A cheerful girl describes her life, her school, and her passion for dancing."},
+    "text2":  {"title_en": "The Maths Teacher"},
+    "text3":  {"title_en": "Pablo and Juliette"},
+    "text4":  {"title_en": "Thirteen"},
+    "text5":  {"title_en": "Blues"},
+    "text6":  {"title_en": "I still think a lot about Mike"},
+    "text7":  {"title_en": "My first time at secondary school"},
+    "text8":  {"title_en": "Homework: for, against, or how?", "summary_en": "The narrator recalls homework that felt trivial and pointless, such as making red paint from red flowers."},
+    "text9":  {"title_en": "The Substitute Schoolmaster", "summary_en": "A new teacher and the village pastor size each other up; the relationship starts stiff before the teacher gives ground."},
+    "text10": {"title_en": "School Life in Wartime"},
+    "text11": {"title_en": "Kunibert of Hesperange"},
+    "text12": {"title_en": "Siegfried and Melusina (a Luxembourg legend)"},
+    "text13": {"title_en": "Poker"},
+    "text14": {"title_en": "D'Schnurreli"},
+    "text15": {"title_en": "A Murder in the Gréngewald"},
+    "text16": {"title_en": "Holidays"}
+  },
+  "featured": [
+    {
+      "id": "how-it-works",
+      "title": "1 · How the workbench works",
+      "blurb": "A question the system gets right, to learn the layout.",
+      "selection": {"question_id": "text1_q00", "retriever": "hybrid_w_char", "setting": "open_corpus", "k": 5, "tab": "retrieval"},
+      "gloss": {
+        "question_en": "What is Catherine's very biggest hobby?",
+        "answer_en": "Correct answer (B): Dancing.",
+        "evidence_en": "The green span says, in Luxembourgish, “Dancing is anyway my biggest hobby … later I’ll open a hip-hop dance school.”"
+      },
+      "look_for": [
+        "The passage is highlighted: green is the evidence for the correct answer, red is a distractor.",
+        "In the Retrieval panel, the top chunks are tagged with the same green/red dots, so you can see the retriever actually surfaced the green evidence.",
+        "Switch to the Answering tab: with good evidence retrieved, all four LLMs answer correctly."
+      ]
+    },
+    {
+      "id": "retrieval-trap",
+      "title": "2 · A retrieval trap",
+      "blurb": "Retrieval misses the key evidence and every LLM gets it wrong.",
+      "selection": {"question_id": "text9_q03", "retriever": "hybrid_w_char", "setting": "open_corpus", "k": 5, "tab": "answering"},
+      "gloss": {
+        "question_en": "What is the relationship between the schoolmaster and the pastor?",
+        "answer_en": "Correct answer (C): it starts strict, but the teacher ends up deferring to the pastor.",
+        "evidence_en": "The green (critical) span is never retrieved here; open-corpus search returns chunks from other texts plus a red distractor."
+      },
+      "look_for": [
+        "In open-corpus mode the retriever missed the green evidence and surfaced a red distractor instead.",
+        "In the Answering tab, all four frontier LLMs converge on the same wrong answer (A).",
+        "This is the retrieval trap: accuracy depends on which spans were retrieved, not just whether retrieval ran. The Retrieval-trap tab shows the aggregate: 0.80 accuracy when the right evidence is present, 0.48 when it is not."
+      ]
+    },
+    {
+      "id": "encoders-vs-llms",
+      "title": "3 · Small encoders beat big LLMs",
+      "blurb": "On Luxembourgish morphology, a fine-tuned encoder crushes frontier LLMs.",
+      "selection": {"question_id": "text1_q00", "retriever": "hybrid_w_char", "setting": "open_corpus", "k": 5, "tab": "annotation"},
+      "gloss": {
+        "note_en": "This view is about token-level annotation, not the question. The matrix has 11 Luxembourgish linguistic phenomena (rows) by 7 annotators (columns): the gold standard, three fine-tuned encoders, and three few-shot LLMs."
+      },
+      "look_for": [
+        "On surface morphology like the Eifeler n-rule, the small fine-tuned encoder LuxemBERT scores F1 89 while the best LLM scores 15.",
+        "On rare or archaic words the pattern flips and the LLMs lead: world knowledge beats fine-tuning.",
+        "Click any cell to highlight, in the passage, exactly which tokens that system caught (green) or missed (amber)."
+      ]
+    },
+    {
+      "id": "live-retrieval",
+      "title": "4 · Try live retrieval yourself",
+      "blurb": "Type your own Luxembourgish query and rank the corpus live.",
+      "selection": {"question_id": "text1_q00", "retriever": "hybrid_w_char", "setting": "open_corpus", "k": 5, "tab": "retrieval"},
+      "gloss": {
+        "note_en": "Scroll to the “Live retrieval” box at the bottom of the Retrieval panel."
+      },
+      "look_for": [
+        "Type any query and the character-BM25 retriever ranks the 213 corpus chunks live. Try “Danzen Hobby” or “Schoulmeeschter Pastouer”.",
+        "Character n-grams handle Luxembourg's spelling variation better than word matching, which is why they win in the evaluation.",
+        "It runs on a keyless serverless endpoint: no API key, no LLM call, no per-query cost."
+      ]
+    }
+  ],
+  "about": {
+    "intro": "The LuxDiag Workbench is a data-driven shell, not a viewer hardwired to one dataset. It renders whatever lives in public/data/ against a fixed JSON schema, so any two studies that share one character-offset coordinate system over the same texts can be dropped in and get the same four linked panels. LuxDiagRC is the reference instantiation.",
+    "reuse": [
+      "Upload a bundle of your own study outputs below and watch every panel re-render on it, or replace the files in public/data/ for a permanent deployment.",
+      "Every layer indexes into each text's clean_text, so a retrieved chunk, an evidence span, and an annotated token all speak the same coordinates.",
+      "Nothing in the interface is specific to Luxembourgish or to this corpus."
+    ],
+    "schema": [
+      {"file": "texts.json", "desc": "The source passages. Each clean_text defines the shared coordinate system."},
+      {"file": "questions.json", "desc": "Multiple-choice questions with critical/distractor evidence spans and a cognitive type."},
+      {"file": "chunks.json", "desc": "Retrieval chunks, each with character offsets into its text."},
+      {"file": "retrieval/<id>.json", "desc": "Per-question ranked chunks for every retriever x setting."},
+      {"file": "answers.json", "desc": "Precomputed model answers (question x model x setting) with a retrieval-trap class."},
+      {"file": "annotations.json", "desc": "Token-level gold and model annotations per text and linguistic category."},
+      {"file": "aggregates.json", "desc": "The released summary numbers every figure reads from."},
+      {"file": "meta.json", "desc": "Labels and definitions for retrievers, settings, models, categories, and more."}
+    ],
+    "links": [
+      {"label": "Source code & data", "url": "https://github.com/RedPill47/luxdiag-workbench"},
+      {"label": "Live demo", "url": "https://luxdiag-workbench.vercel.app"}
+    ],
+    "licensing": "Code: MIT. Data: CC BY 4.0 (on publication). No accounts, no API keys, no user data stored."
+  },
+  "glossary": {
+    "_note": "Detailed definitions for the click-to-reveal reference. Linguistic definitions follow Table 1 of the annotation-study paper; Luxembourgish examples are illustrative and pending native check.",
+    "groups": [
+      {"title": "Linguistic phenomena · lexical & semantic", "keys": ["lex-loan-fr", "lex-loan-de", "lex-false-friend", "lex-idiom-zls", "lex-rare-zls"]},
+      {"title": "Linguistic phenomena · syntactic & morphological", "keys": ["morph-n-rule", "syn-verb-sep", "syn-verb-final", "syn-embedded"]},
+      {"title": "Linguistic phenomena · discourse & orthographic", "keys": ["disc-coref-ambig", "ortho-phono-diverge"]},
+      {"title": "Answering settings", "keys": ["closed_book", "full_text_oracle", "rag_text_restricted", "rag_open_corpus"]},
+      {"title": "Retrieval-trap classes", "keys": ["critical_only", "both", "distractor_only", "neither"]},
+      {"title": "Question types (PIRLS cognitive processes)", "keys": ["retrieve_direct_fact", "inferential_reasoning", "interpretive_comprehension", "evaluative_reasoning"]}
+    ],
+    "details": {
+      "lex-loan-fr": {"detail": "A word of clear French origin used in Luxembourgish. Luxembourgish borrows heavily from French for social, administrative and abstract vocabulary, so a model tuned mostly on German-like text can misread these.", "example_lb": "merci, forcéiert, Pedanterie"},
+      "lex-loan-de": {"detail": "A word of clear German origin used in Luxembourgish. Common because Luxembourgish sits close to German, but the two languages diverge in spelling and sense.", "example_lb": "besonnesch (cf. German besonders)"},
+      "lex-false-friend": {"detail": "A lexical item prone to cross-lingual confusion: it resembles a German or French word but means something different in Luxembourgish, so a multilingual model may assign the wrong sense. This is the phenomenon the diagnostic distractors most often exploit."},
+      "lex-idiom-zls": {"detail": "An idiomatic expression or typical Luxembourgish saying whose meaning is not literal. Excluded from encoder training because it occurs only once in the corpus, so it is greyed out in the matrix."},
+      "lex-rare-zls": {"detail": "A rare, archaic, or low-frequency Luxembourgish word unlikely to be well represented in pretraining data. This is where large LLMs' broad world knowledge lets them beat the small fine-tuned encoders (best LLM F1 83 vs encoders near 0)."},
+      "morph-n-rule": {"detail": "An instance of the Eifeler Regel (the “n-rule”): a final -n is dropped or kept depending on the first sound of the next word. The spelling of the same word therefore changes with context, which is hard for subword tokenizers. Small fine-tuned encoders learn it well (LuxemBERT F1 89) while large LLMs do not (best LLM 15).", "example_lb": "wann ech → wa mer  (the -nn is dropped before m)"},
+      "syn-verb-sep": {"detail": "A separable-prefix verb whose prefix detaches and moves elsewhere in the clause, so the two halves of one verb end up far apart and must be linked across the sentence.", "example_lb": "ukucken → hien kuckt … un"},
+      "syn-verb-final": {"detail": "A subordinate clause in which the finite verb is pushed to the end, following Germanic word order. The long gap between subject and verb raises parsing load.", "example_lb": "… wéi mir géifen erwuesse ginn"},
+      "syn-embedded": {"detail": "An embedded or nested relative clause. Rare in this corpus and excluded from encoder training, so it is greyed out in the matrix."},
+      "disc-coref-ambig": {"detail": "A pronoun or reference whose antecedent is distant or ambiguous, so deciding who or what it points to needs discourse-level reasoning rather than a local cue."},
+      "ortho-phono-diverge": {"detail": "A word whose written form diverges from how it is spoken, or that is spelled inconsistently across the corpus. Spelling variation is pervasive in Luxembourgish and is exactly what defeats word-level matching and rewards character n-grams."},
+      "closed_book": {"detail": "The model answers from its own parameters, with no source text supplied. Used as a contamination and calibration control: if a model already knows the answer, retrieval is not what is being tested."},
+      "full_text_oracle": {"detail": "The model is given the entire correct source text. This removes retrieval failure altogether and gives an upper bound on answering accuracy (0.81–0.85 across the four models)."},
+      "rag_text_restricted": {"detail": "Retrieval is limited to chunks from the correct source text, then the model answers. Retrieval can still rank the wrong chunk, but never pull from the wrong story."},
+      "rag_open_corpus": {"detail": "Retrieval runs over all 16 texts, so it can surface passages from an entirely different story. This is the hardest and most realistic setting, and the one where the retrieval trap appears."},
+      "critical_only": {"detail": "The retriever surfaced the evidence that supports the correct answer, and no distractor. The cleanest input a model can get."},
+      "both": {"detail": "The retriever surfaced both the correct evidence and a distractor. Accuracy is actually highest here (0.80): the right evidence is present and the models mostly resist the distractor."},
+      "distractor_only": {"detail": "The retriever surfaced a distractor but missed the correct evidence. This is the trap: with only misleading text in context, accuracy falls and the distractor-choice rate rises."},
+      "neither": {"detail": "The retriever surfaced neither the correct evidence nor a distractor, often chunks from the wrong text entirely. Accuracy is lowest here (0.48)."},
+      "retrieve_direct_fact": {"detail": "The answer is stated explicitly in the text; the reader only has to locate it (PIRLS: retrieve explicitly stated information)."},
+      "inferential_reasoning": {"detail": "The answer requires making a straightforward inference by combining nearby clues (PIRLS: make straightforward inferences)."},
+      "interpretive_comprehension": {"detail": "The answer requires interpreting and integrating ideas and information across the text (PIRLS)."},
+      "evaluative_reasoning": {"detail": "The answer requires examining and evaluating content, language, or the author's choices (PIRLS)."}
+    }
+  }
+}

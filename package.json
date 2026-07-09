@@ -1,0 +1,29 @@
+{
+  "name": "luxdiag-workbench",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Interactive, browser-based diagnostic workbench for retrieval-augmented QA and token-annotation studies over a shared character-offset coordinate system.",
+  "license": "MIT",
+  "author": "Hedi Tebourbi, Christophe Friezas Gonçalves, Salima Lamsiyah",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RedPill47/luxdiag-workbench.git"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.2",
+    "@vitejs/plugin-react": "^6.0.3",
+    "recharts": "^3.9.1",
+    "tailwindcss": "^4.3.2",
+    "vite": "^8.1.3"
+  }
+}

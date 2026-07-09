@@ -1,0 +1,6120 @@
+{
+ "_note": "Example bundle for the LuxDiag Workbench — a deliberately DIFFERENT study (English text, other retrievers, other LLMs, entity+discourse tagging) to show the interface is a reusable shell. Replace each section with your own data in this shape and upload it. `retrieval` is an object keyed by question_id.",
+ "texts": [
+  {
+   "text_id": "en1",
+   "title": "The Voyager Program",
+   "clean_text": "The Voyager program is a pair of robotic probes launched by NASA in 1977 to study the outer Solar System. Voyager 1 and Voyager 2 were built at the Jet Propulsion Laboratory in California. Voyager 2 lifted off first, on 20 August 1977, and Voyager 1 followed on 5 September 1977 along a faster path. Voyager 1 flew past Jupiter in 1979 and Saturn in 1980, returning the first detailed images of their moons. Voyager 2 remains the only spacecraft to have visited Uranus and Neptune, which it reached in 1986 and 1989. Each probe carries a Golden Record, a phonograph disc holding sounds and pictures chosen to portray the diversity of life on Earth. The contents of the records were selected by a committee led by the astronomer Carl Sagan. The records were not meant to be recovered; they were intended as a message to any intelligent life that might one day find them. In 2012 Voyager 1 crossed the heliopause and entered interstellar space, the first human-made object to do so. The probes are powered by radioisotope generators, not solar panels, because sunlight is far too weak in the outer Solar System. NASA still receives faint signals from both spacecraft today."
+  },
+  {
+   "text_id": "en2",
+   "title": "The Great Barrier Reef",
+   "clean_text": "The Great Barrier Reef is the world's largest coral reef system, stretching more than 2,300 kilometres along the north-east coast of Australia. It is composed of nearly 3,000 individual reefs and around 900 islands. The reef is not a single organism but a vast structure built by billions of tiny animals called coral polyps. It can be seen from low Earth orbit and is often described as the largest living structure on the planet. In 1981 the reef was designated a World Heritage Site by UNESCO. The area supports an extraordinary diversity of life, including more than 1,500 species of fish and six of the world's seven species of marine turtle. Rising sea temperatures have caused several mass bleaching events, in which stressed corals expel the algae that give them colour and energy. The reef is managed by the Great Barrier Reef Marine Park Authority, which was established in 1975. Tourism brings billions of dollars to the regional economy each year, but it also adds pressure to an already fragile ecosystem. Scientists warn that the reef will not survive unchecked warming."
+  }
+ ],
+ "questions": [
+  {
+   "question_id": "en1_q00",
+   "text_id": "en1",
+   "question": "In which year did Voyager 1 enter interstellar space?",
+   "options": [
+    "1977",
+    "1989",
+    "2012",
+    "1980"
+   ],
+   "gold_option_index": 2,
+   "cognitive_type": "extract_fact",
+   "linguistic_categories": [
+    "temporal",
+    "ent-org"
+   ],
+   "critical_spans": [
+    {
+     "start": 870,
+     "end": 941
+    }
+   ],
+   "distractor_spans": [
+    {
+     "start": 250,
+     "end": 278
+    }
+   ]
+  },
+  {
+   "question_id": "en1_q01",
+   "text_id": "en1",
+   "question": "Which spacecraft is the only one to have visited Uranus and Neptune?",
+   "options": [
+    "Voyager 1",
+    "Voyager 2",
+    "Both probes",
+    "Neither probe"
+   ],
+   "gold_option_index": 1,
+   "cognitive_type": "extract_fact",
+   "linguistic_categories": [
+    "ent-gpe",
+    "temporal"
+   ],
+   "critical_spans": [
+    {
+     "start": 408,
+     "end": 480
+    }
+   ],
+   "distractor_spans": [
+    {
+     "start": 300,
+     "end": 354
+    }
+   ]
+  },
+  {
+   "question_id": "en1_q02",
+   "text_id": "en1",
+   "question": "What supplies electrical power to the Voyager probes?",
+   "options": [
+    "Solar panels",
+    "Radioisotope generators",
+    "Chemical batteries",
+    "Nuclear fission reactors"
+   ],
+   "gold_option_index": 1,
+   "cognitive_type": "inference",
+   "linguistic_categories": [
+    "negation"
+   ],
+   "critical_spans": [
+    {
+     "start": 981,
+     "end": 1048
+    }
+   ],
+   "distractor_spans": [
+    {
+     "start": 1058,
+     "end": 1082
+    }
+   ]
+  },
+  {
+   "question_id": "en2_q00",
+   "text_id": "en2",
+   "question": "In which year was the reef designated a World Heritage Site?",
+   "options": [
+    "1975",
+    "1981",
+    "1500",
+    "2012"
+   ],
+   "gold_option_index": 1,
+   "cognitive_type": "extract_fact",
+   "linguistic_categories": [
+    "temporal",
+    "ent-org"
+   ],
+   "critical_spans": [
+    {
+     "start": 432,
+     "end": 495
+    }
+   ],
+   "distractor_spans": [
+    {
+     "start": 859,
+     "end": 888
+    }
+   ]
+  },
+  {
+   "question_id": "en2_q01",
+   "text_id": "en2",
+   "question": "Roughly how long is the Great Barrier Reef?",
+   "options": [
+    "About 900 kilometres",
+    "More than 2,300 kilometres",
+    "Nearly 3,000 kilometres",
+    "About 1,500 kilometres"
+   ],
+   "gold_option_index": 1,
+   "cognitive_type": "numeric",
+   "linguistic_categories": [
+    "num-quantity",
+    "ent-gpe"
+   ],
+   "critical_spans": [
+    {
+     "start": 65,
+     "end": 142
+    }
+   ],
+   "distractor_spans": [
+    {
+     "start": 162,
+     "end": 214
+    }
+   ]
+  },
+  {
+   "question_id": "en2_q02",
+   "text_id": "en2",
+   "question": "Is the Great Barrier Reef a single living organism?",
+   "options": [
+    "Yes, it is one giant organism",
+    "No, it is built by billions of coral polyps",
+    "Yes, it is a single colony of algae",
+    "No, it is an entirely non-living rock formation"
+   ],
+   "gold_option_index": 1,
+   "cognitive_type": "inference",
+   "linguistic_categories": [
+    "negation",
+    "num-quantity"
+   ],
+   "critical_spans": [
+    {
+     "start": 216,
+     "end": 324
+    }
+   ],
+   "distractor_spans": [
+    {
+     "start": 388,
+     "end": 430
+    }
+   ]
+  }
+ ],
+ "chunks": [
+  {
+   "chunk_id": "en1_c000",
+   "text_id": "en1",
+   "start": 0,
+   "end": 339,
+   "token_count": 63,
+   "chunk_text": "The Voyager program is a pair of robotic probes launched by NASA in 1977 to study the outer Solar System. Voyager 1 and Voyager 2 were built at the Jet Propulsion Laboratory in California. Voyager 2 lifted off first, on 20 August 1977, and Voyager 1 followed on 5 September 1977 along a faster path. Voyager 1 flew past Jupiter in 1979 and"
+  },
+  {
+   "chunk_id": "en1_c001",
+   "text_id": "en1",
+   "start": 209,
+   "end": 544,
+   "token_count": 60,
+   "chunk_text": " first, on 20 August 1977, and Voyager 1 followed on 5 September 1977 along a faster path. Voyager 1 flew past Jupiter in 1979 and Saturn in 1980, returning the first detailed images of their moons. Voyager 2 remains the only spacecraft to have visited Uranus and Neptune, which it reached in 1986 and 1989. Each probe carries a Golden"
+  },
+  {
+   "chunk_id": "en1_c002",
+   "text_id": "en1",
+   "start": 414,
+   "end": 751,
+   "token_count": 59,
+   "chunk_text": "r 2 remains the only spacecraft to have visited Uranus and Neptune, which it reached in 1986 and 1989. Each probe carries a Golden Record, a phonograph disc holding sounds and pictures chosen to portray the diversity of life on Earth. The contents of the records were selected by a committee led by the astronomer Carl Sagan. The records"
+  },
+  {
+   "chunk_id": "en1_c003",
+   "text_id": "en1",
+   "start": 621,
+   "end": 952,
+   "token_count": 58,
+   "chunk_text": "diversity of life on Earth. The contents of the records were selected by a committee led by the astronomer Carl Sagan. The records were not meant to be recovered; they were intended as a message to any intelligent life that might one day find them. In 2012 Voyager 1 crossed the heliopause and entered interstellar space, the first"
+  },
+  {
+   "chunk_id": "en1_c004",
+   "text_id": "en1",
+   "start": 822,
+   "end": 1153,
+   "token_count": 54,
+   "chunk_text": " intelligent life that might one day find them. In 2012 Voyager 1 crossed the heliopause and entered interstellar space, the first human-made object to do so. The probes are powered by radioisotope generators, not solar panels, because sunlight is far too weak in the outer Solar System. NASA still receives faint signals from both"
+  },
+  {
+   "chunk_id": "en1_c005",
+   "text_id": "en1",
+   "start": 1023,
+   "end": 1171,
+   "token_count": 24,
+   "chunk_text": "erators, not solar panels, because sunlight is far too weak in the outer Solar System. NASA still receives faint signals from both spacecraft today."
+  },
+  {
+   "chunk_id": "en2_c000",
+   "text_id": "en2",
+   "start": 0,
+   "end": 335,
+   "token_count": 57,
+   "chunk_text": "The Great Barrier Reef is the world's largest coral reef system, stretching more than 2,300 kilometres along the north-east coast of Australia. It is composed of nearly 3,000 individual reefs and around 900 islands. The reef is not a single organism but a vast structure built by billions of tiny animals called coral polyps. It can be"
+  },
+  {
+   "chunk_id": "en2_c001",
+   "text_id": "en2",
+   "start": 205,
+   "end": 544,
+   "token_count": 61,
+   "chunk_text": "0 islands. The reef is not a single organism but a vast structure built by billions of tiny animals called coral polyps. It can be seen from low Earth orbit and is often described as the largest living structure on the planet. In 1981 the reef was designated a World Heritage Site by UNESCO. The area supports an extraordinary diversity of"
+  },
+  {
+   "chunk_id": "en2_c002",
+   "text_id": "en2",
+   "start": 414,
+   "end": 749,
+   "token_count": 56,
+   "chunk_text": "re on the planet. In 1981 the reef was designated a World Heritage Site by UNESCO. The area supports an extraordinary diversity of life, including more than 1,500 species of fish and six of the world's seven species of marine turtle. Rising sea temperatures have caused several mass bleaching events, in which stressed corals expel the"
+  },
+  {
+   "chunk_id": "en2_c003",
+   "text_id": "en2",
+   "start": 619,
+   "end": 953,
+   "token_count": 54,
+   "chunk_text": "en species of marine turtle. Rising sea temperatures have caused several mass bleaching events, in which stressed corals expel the algae that give them colour and energy. The reef is managed by the Great Barrier Reef Marine Park Authority, which was established in 1975. Tourism brings billions of dollars to the regional economy each"
+  },
+  {
+   "chunk_id": "en2_c004",
+   "text_id": "en2",
+   "start": 823,
+   "end": 1084,
+   "token_count": 41,
+   "chunk_text": "Barrier Reef Marine Park Authority, which was established in 1975. Tourism brings billions of dollars to the regional economy each year, but it also adds pressure to an already fragile ecosystem. Scientists warn that the reef will not survive unchecked warming."
+  }
+ ],
+ "answers": [
+  {
+   "question_id": "en1_q00",
+   "model": "gpt_4o",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "gpt_4o",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 2,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "gpt_4o",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "gpt_4o",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 3,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "critical_only"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "llama_3_1_405b",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "llama_3_1_405b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 2,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "llama_3_1_405b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "llama_3_1_405b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "critical_only"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "mistral_large_2",
+   "setting": "closed_book",
+   "predicted_option_index": 3,
+   "correct": false
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "mistral_large_2",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 0,
+   "correct": false
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "mistral_large_2",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "mistral_large_2",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "critical_only"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "qwen2_5_72b",
+   "setting": "closed_book",
+   "predicted_option_index": 3,
+   "correct": false
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "qwen2_5_72b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 2,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "qwen2_5_72b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q00",
+   "model": "qwen2_5_72b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 2,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "critical_only"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "gpt_4o",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "gpt_4o",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "gpt_4o",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "gpt_4o",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "llama_3_1_405b",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "llama_3_1_405b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "llama_3_1_405b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "llama_3_1_405b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "mistral_large_2",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "mistral_large_2",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "mistral_large_2",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "mistral_large_2",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "qwen2_5_72b",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "qwen2_5_72b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 3,
+   "correct": false
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "qwen2_5_72b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q01",
+   "model": "qwen2_5_72b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "gpt_4o",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "gpt_4o",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "gpt_4o",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "gpt_4o",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "llama_3_1_405b",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "llama_3_1_405b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "llama_3_1_405b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "llama_3_1_405b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "mistral_large_2",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "mistral_large_2",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "mistral_large_2",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "mistral_large_2",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "qwen2_5_72b",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "qwen2_5_72b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "qwen2_5_72b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en1_q02",
+   "model": "qwen2_5_72b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "gpt_4o",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "gpt_4o",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "gpt_4o",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "gpt_4o",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "llama_3_1_405b",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "llama_3_1_405b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "llama_3_1_405b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "llama_3_1_405b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "mistral_large_2",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "mistral_large_2",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "mistral_large_2",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "mistral_large_2",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "qwen2_5_72b",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "qwen2_5_72b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "qwen2_5_72b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q00",
+   "model": "qwen2_5_72b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "gpt_4o",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "gpt_4o",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "gpt_4o",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "gpt_4o",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "distractor_only"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "llama_3_1_405b",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "llama_3_1_405b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 3,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "llama_3_1_405b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "llama_3_1_405b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 0,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "distractor_only"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "mistral_large_2",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "mistral_large_2",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "mistral_large_2",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "mistral_large_2",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "distractor_only"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "qwen2_5_72b",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "qwen2_5_72b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "qwen2_5_72b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q01",
+   "model": "qwen2_5_72b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "distractor_only"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "gpt_4o",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "gpt_4o",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 3,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "gpt_4o",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 2,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "gpt_4o",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "neither"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "llama_3_1_405b",
+   "setting": "closed_book",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "llama_3_1_405b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "llama_3_1_405b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "llama_3_1_405b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 0,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "neither"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "mistral_large_2",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "mistral_large_2",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "mistral_large_2",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "mistral_large_2",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "neither"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "qwen2_5_72b",
+   "setting": "closed_book",
+   "predicted_option_index": 2,
+   "correct": false
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "qwen2_5_72b",
+   "setting": "full_text_oracle",
+   "predicted_option_index": 1,
+   "correct": true
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "qwen2_5_72b",
+   "setting": "rag_text_restricted",
+   "predicted_option_index": 1,
+   "correct": true,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "both"
+  },
+  {
+   "question_id": "en2_q02",
+   "model": "qwen2_5_72b",
+   "setting": "rag_open_corpus",
+   "predicted_option_index": 0,
+   "correct": false,
+   "retriever": "hybrid_rrf",
+   "k": 5,
+   "retrieval_trap_class": "neither"
+  }
+ ],
+ "annotations": [
+  {
+   "text_id": "en1",
+   "category": "ent-person",
+   "gold_occurrences": [
+    {
+     "start": 728,
+     "end": 738,
+     "surface": "Carl Sagan"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "Carl Sagan"
+    ],
+    "spacy_en": [
+     "Carl Sagan"
+    ],
+    "stanza": [
+     "Carl Sagan"
+    ],
+    "flair": [
+     "Carl Sagan"
+    ],
+    "gpt_4o_ie": [
+     "Carl Sagan"
+    ],
+    "claude_3_5_ie": [
+     "Carl Sagan",
+     "orbit"
+    ]
+   }
+  },
+  {
+   "text_id": "en1",
+   "category": "ent-org",
+   "gold_occurrences": [
+    {
+     "start": 60,
+     "end": 64,
+     "surface": "NASA"
+    },
+    {
+     "start": 148,
+     "end": 173,
+     "surface": "Jet Propulsion Laboratory"
+    },
+    {
+     "start": 1110,
+     "end": 1114,
+     "surface": "NASA"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "NASA",
+     "Jet Propulsion Laboratory",
+     "NASA"
+    ],
+    "spacy_en": [
+     "NASA",
+     "Jet Propulsion Laboratory",
+     "NASA"
+    ],
+    "stanza": [
+     "NASA",
+     "Jet Propulsion Laboratory",
+     "NASA"
+    ],
+    "flair": [
+     "NASA",
+     "Jet Propulsion Laboratory",
+     "NASA"
+    ],
+    "gpt_4o_ie": [
+     "NASA",
+     "Jet Propulsion Laboratory"
+    ],
+    "claude_3_5_ie": [
+     "NASA",
+     "Jet Propulsion Laboratory",
+     "orbit"
+    ]
+   }
+  },
+  {
+   "text_id": "en1",
+   "category": "ent-gpe",
+   "gold_occurrences": [
+    {
+     "start": 177,
+     "end": 187,
+     "surface": "California"
+    },
+    {
+     "start": 642,
+     "end": 647,
+     "surface": "Earth"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "California",
+     "Earth"
+    ],
+    "spacy_en": [
+     "California",
+     "Earth"
+    ],
+    "stanza": [
+     "California",
+     "Earth"
+    ],
+    "flair": [
+     "California",
+     "Earth"
+    ],
+    "gpt_4o_ie": [
+     "California"
+    ],
+    "claude_3_5_ie": [
+     "California",
+     "orbit"
+    ]
+   }
+  },
+  {
+   "text_id": "en1",
+   "category": "temporal",
+   "gold_occurrences": [
+    {
+     "start": 68,
+     "end": 72,
+     "surface": "1977"
+    },
+    {
+     "start": 220,
+     "end": 234,
+     "surface": "20 August 1977"
+    },
+    {
+     "start": 262,
+     "end": 278,
+     "surface": "5 September 1977"
+    },
+    {
+     "start": 331,
+     "end": 335,
+     "surface": "1979"
+    },
+    {
+     "start": 350,
+     "end": 354,
+     "surface": "1980"
+    },
+    {
+     "start": 502,
+     "end": 506,
+     "surface": "1986"
+    },
+    {
+     "start": 511,
+     "end": 515,
+     "surface": "1989"
+    },
+    {
+     "start": 873,
+     "end": 877,
+     "surface": "2012"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "1977",
+     "20 August 1977",
+     "5 September 1977",
+     "1979",
+     "1980",
+     "1986",
+     "1989",
+     "2012"
+    ],
+    "spacy_en": [
+     "1977",
+     "20 August 1977",
+     "5 September 1977",
+     "1979",
+     "1980",
+     "1986",
+     "1989",
+     "2012"
+    ],
+    "stanza": [
+     "1977",
+     "20 August 1977",
+     "5 September 1977",
+     "1979",
+     "1980",
+     "1986",
+     "1989",
+     "2012"
+    ],
+    "flair": [
+     "1977",
+     "20 August 1977",
+     "5 September 1977",
+     "1979",
+     "1980",
+     "1986",
+     "1989",
+     "2012"
+    ],
+    "gpt_4o_ie": [
+     "1977",
+     "20 August 1977",
+     "5 September 1977",
+     "1979",
+     "1980",
+     "1986",
+     "1989",
+     "2012"
+    ],
+    "claude_3_5_ie": [
+     "1977",
+     "20 August 1977",
+     "5 September 1977",
+     "1979",
+     "1980",
+     "1986",
+     "1989",
+     "2012"
+    ]
+   }
+  },
+  {
+   "text_id": "en1",
+   "category": "negation",
+   "gold_occurrences": [
+    {
+     "start": 757,
+     "end": 782,
+     "surface": "not meant to be recovered"
+    },
+    {
+     "start": 1032,
+     "end": 1048,
+     "surface": "not solar panels"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "not meant to be recovered",
+     "not solar panels"
+    ],
+    "spacy_en": [
+     "not meant to be recovered"
+    ],
+    "stanza": [
+     "not meant to be recovered"
+    ],
+    "flair": [
+     "not meant to be recovered",
+     "no"
+    ],
+    "gpt_4o_ie": [
+     "not meant to be recovered",
+     "not solar panels"
+    ],
+    "claude_3_5_ie": [
+     "not meant to be recovered",
+     "not solar panels"
+    ]
+   }
+  },
+  {
+   "text_id": "en1",
+   "category": "coref",
+   "gold_occurrences": [
+    {
+     "start": 323,
+     "end": 325,
+     "surface": "it"
+    },
+    {
+     "start": 395,
+     "end": 400,
+     "surface": "their"
+    },
+    {
+     "start": 457,
+     "end": 459,
+     "surface": "it"
+    },
+    {
+     "start": 488,
+     "end": 490,
+     "surface": "it"
+    },
+    {
+     "start": 627,
+     "end": 629,
+     "surface": "it"
+    },
+    {
+     "start": 700,
+     "end": 702,
+     "surface": "it"
+    },
+    {
+     "start": 784,
+     "end": 788,
+     "surface": "they"
+    },
+    {
+     "start": 864,
+     "end": 868,
+     "surface": "them"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "it",
+     "their",
+     "it",
+     "it",
+     "it",
+     "it",
+     "they",
+     "them"
+    ],
+    "spacy_en": [
+     "it"
+    ],
+    "stanza": [
+     "it"
+    ],
+    "flair": [
+     "it",
+     "no"
+    ],
+    "gpt_4o_ie": [
+     "it",
+     "their",
+     "it",
+     "it",
+     "it",
+     "it",
+     "they",
+     "them"
+    ],
+    "claude_3_5_ie": [
+     "it",
+     "their",
+     "it",
+     "it",
+     "it",
+     "it",
+     "they",
+     "them"
+    ]
+   }
+  },
+  {
+   "text_id": "en2",
+   "category": "ent-org",
+   "gold_occurrences": [
+    {
+     "start": 489,
+     "end": 495,
+     "surface": "UNESCO"
+    },
+    {
+     "start": 817,
+     "end": 857,
+     "surface": "Great Barrier Reef Marine Park Authority"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "UNESCO",
+     "Great Barrier Reef Marine Park Authority"
+    ],
+    "spacy_en": [
+     "UNESCO",
+     "Great Barrier Reef Marine Park Authority"
+    ],
+    "stanza": [
+     "UNESCO",
+     "Great Barrier Reef Marine Park Authority"
+    ],
+    "flair": [
+     "UNESCO",
+     "Great Barrier Reef Marine Park Authority"
+    ],
+    "gpt_4o_ie": [
+     "UNESCO"
+    ],
+    "claude_3_5_ie": [
+     "UNESCO",
+     "orbit"
+    ]
+   }
+  },
+  {
+   "text_id": "en2",
+   "category": "ent-gpe",
+   "gold_occurrences": [
+    {
+     "start": 133,
+     "end": 142,
+     "surface": "Australia"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "Australia"
+    ],
+    "spacy_en": [
+     "Australia"
+    ],
+    "stanza": [
+     "Australia"
+    ],
+    "flair": [
+     "Australia"
+    ],
+    "gpt_4o_ie": [
+     "Australia"
+    ],
+    "claude_3_5_ie": [
+     "Australia",
+     "orbit"
+    ]
+   }
+  },
+  {
+   "text_id": "en2",
+   "category": "num-quantity",
+   "gold_occurrences": [
+    {
+     "start": 86,
+     "end": 102,
+     "surface": "2,300 kilometres"
+    },
+    {
+     "start": 169,
+     "end": 191,
+     "surface": "3,000 individual reefs"
+    },
+    {
+     "start": 203,
+     "end": 214,
+     "surface": "900 islands"
+    },
+    {
+     "start": 571,
+     "end": 584,
+     "surface": "1,500 species"
+    },
+    {
+     "start": 905,
+     "end": 924,
+     "surface": "billions of dollars"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "2,300 kilometres",
+     "3,000 individual reefs",
+     "900 islands",
+     "1,500 species",
+     "billions of dollars"
+    ],
+    "spacy_en": [
+     "2,300 kilometres",
+     "3,000 individual reefs",
+     "900 islands",
+     "1,500 species",
+     "billions of dollars"
+    ],
+    "stanza": [
+     "2,300 kilometres",
+     "3,000 individual reefs",
+     "900 islands",
+     "1,500 species",
+     "billions of dollars"
+    ],
+    "flair": [
+     "2,300 kilometres",
+     "3,000 individual reefs",
+     "900 islands",
+     "1,500 species",
+     "billions of dollars"
+    ],
+    "gpt_4o_ie": [
+     "2,300 kilometres",
+     "3,000 individual reefs",
+     "900 islands",
+     "1,500 species",
+     "billions of dollars"
+    ],
+    "claude_3_5_ie": [
+     "2,300 kilometres",
+     "3,000 individual reefs",
+     "900 islands",
+     "1,500 species",
+     "billions of dollars"
+    ]
+   }
+  },
+  {
+   "text_id": "en2",
+   "category": "temporal",
+   "gold_occurrences": [
+    {
+     "start": 435,
+     "end": 439,
+     "surface": "1981"
+    },
+    {
+     "start": 884,
+     "end": 888,
+     "surface": "1975"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "1981",
+     "1975"
+    ],
+    "spacy_en": [
+     "1981",
+     "1975"
+    ],
+    "stanza": [
+     "1981",
+     "1975"
+    ],
+    "flair": [
+     "1981",
+     "1975"
+    ],
+    "gpt_4o_ie": [
+     "1981",
+     "1975"
+    ],
+    "claude_3_5_ie": [
+     "1981",
+     "1975"
+    ]
+   }
+  },
+  {
+   "text_id": "en2",
+   "category": "negation",
+   "gold_occurrences": [
+    {
+     "start": 228,
+     "end": 249,
+     "surface": "not a single organism"
+    },
+    {
+     "start": 1049,
+     "end": 1065,
+     "surface": "will not survive"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "not a single organism",
+     "will not survive"
+    ],
+    "spacy_en": [
+     "not a single organism"
+    ],
+    "stanza": [
+     "not a single organism"
+    ],
+    "flair": [
+     "not a single organism",
+     "no"
+    ],
+    "gpt_4o_ie": [
+     "not a single organism",
+     "will not survive"
+    ],
+    "claude_3_5_ie": [
+     "not a single organism",
+     "will not survive"
+    ]
+   }
+  },
+  {
+   "text_id": "en2",
+   "category": "coref",
+   "gold_occurrences": [
+    {
+     "start": 144,
+     "end": 146,
+     "surface": "It"
+    },
+    {
+     "start": 326,
+     "end": 328,
+     "surface": "It"
+    },
+    {
+     "start": 718,
+     "end": 723,
+     "surface": "which"
+    },
+    {
+     "start": 766,
+     "end": 770,
+     "surface": "them"
+    },
+    {
+     "start": 859,
+     "end": 864,
+     "surface": "which"
+    }
+   ],
+   "predictions": {
+    "gold": [
+     "It",
+     "It",
+     "which",
+     "them",
+     "which"
+    ],
+    "spacy_en": [
+     "It"
+    ],
+    "stanza": [
+     "It"
+    ],
+    "flair": [
+     "It",
+     "no"
+    ],
+    "gpt_4o_ie": [
+     "It",
+     "It",
+     "which",
+     "them",
+     "which"
+    ],
+    "claude_3_5_ie": [
+     "It",
+     "It",
+     "which",
+     "them",
+     "which"
+    ]
+   }
+  }
+ ],
+ "aggregates": {
+  "retrieval_trap": {
+   "best_retriever": "hybrid_rrf",
+   "setting": "open_corpus",
+   "k": 5,
+   "by_class": {
+    "both": {
+     "n_questions": 812,
+     "accuracy": 0.82,
+     "distractor_choice_rate": 0.07
+    },
+    "critical_only": {
+     "n_questions": 190,
+     "accuracy": 0.86,
+     "distractor_choice_rate": 0.05
+    },
+    "distractor_only": {
+     "n_questions": 96,
+     "accuracy": 0.55,
+     "distractor_choice_rate": 0.28
+    },
+    "neither": {
+     "n_questions": 74,
+     "accuracy": 0.41,
+     "distractor_choice_rate": 0.16
+    }
+   }
+  },
+  "evidence_recall_curves": {
+   "text_restricted": {
+    "bm25": {
+     "1": 0.52,
+     "3": 0.71,
+     "5": 0.8,
+     "10": 0.9
+    },
+    "splade_v3": {
+     "1": 0.66,
+     "3": 0.83,
+     "5": 0.9,
+     "10": 0.96
+    },
+    "e5_large_v2": {
+     "1": 0.63,
+     "3": 0.82,
+     "5": 0.91,
+     "10": 0.97
+    },
+    "colbert_v2": {
+     "1": 0.69,
+     "3": 0.86,
+     "5": 0.93,
+     "10": 0.98
+    },
+    "hybrid_rrf": {
+     "1": 0.72,
+     "3": 0.88,
+     "5": 0.94,
+     "10": 0.98
+    }
+   },
+   "open_corpus": {
+    "bm25": {
+     "1": 0.44,
+     "3": 0.63,
+     "5": 0.74,
+     "10": 0.85
+    },
+    "splade_v3": {
+     "1": 0.58,
+     "3": 0.75,
+     "5": 0.84,
+     "10": 0.92
+    },
+    "e5_large_v2": {
+     "1": 0.55,
+     "3": 0.74,
+     "5": 0.85,
+     "10": 0.93
+    },
+    "colbert_v2": {
+     "1": 0.61,
+     "3": 0.79,
+     "5": 0.88,
+     "10": 0.95
+    },
+    "hybrid_rrf": {
+     "1": 0.64,
+     "3": 0.81,
+     "5": 0.89,
+     "10": 0.95
+    }
+   }
+  },
+  "control_accuracy": {
+   "closed_book": {
+    "gpt_4o": 0.65,
+    "llama_3_1_405b": 0.61,
+    "mistral_large_2": 0.575,
+    "qwen2_5_72b": 0.56
+   },
+   "full_text_oracle": {
+    "gpt_4o": 0.87,
+    "llama_3_1_405b": 0.798,
+    "mistral_large_2": 0.735,
+    "qwen2_5_72b": 0.708
+   }
+  },
+  "per_category_f1": {
+   "ent-person": {
+    "spacy_en": 96.5,
+    "stanza": 95.1,
+    "flair": 94.2,
+    "best_llm": 78.0,
+    "regime": 1
+   },
+   "ent-org": {
+    "spacy_en": 94.8,
+    "stanza": 96.0,
+    "flair": 92.7,
+    "best_llm": 74.5,
+    "regime": 1
+   },
+   "ent-gpe": {
+    "spacy_en": 95.7,
+    "stanza": 93.9,
+    "flair": 93.1,
+    "best_llm": 76.8,
+    "regime": 1
+   },
+   "num-quantity": {
+    "spacy_en": 86.4,
+    "stanza": 88.1,
+    "flair": 84.0,
+    "best_llm": 87.9,
+    "regime": 2
+   },
+   "temporal": {
+    "spacy_en": 88.7,
+    "stanza": 87.2,
+    "flair": 85.5,
+    "best_llm": 90.3,
+    "regime": 2
+   },
+   "negation": {
+    "spacy_en": 41.2,
+    "stanza": 38.6,
+    "flair": 33.0,
+    "best_llm": 88.4,
+    "regime": 3
+   },
+   "coref": {
+    "spacy_en": 46.9,
+    "stanza": 44.3,
+    "flair": 39.8,
+    "best_llm": 91.6,
+    "regime": 3
+   }
+  },
+  "aggregate_f1": {
+   "spacy_en": {
+    "micro": 84.6,
+    "macro": 78.6,
+    "type": "encoder"
+   },
+   "stanza": {
+    "micro": 85.1,
+    "macro": 77.6,
+    "type": "encoder"
+   },
+   "flair": {
+    "micro": 81.9,
+    "macro": 74.6,
+    "type": "encoder"
+   },
+   "gpt_4o_ie": {
+    "micro": 82.0,
+    "macro": 83.9,
+    "type": "llm"
+   },
+   "claude_3_5_ie": {
+    "micro": 80.4,
+    "macro": 82.7,
+    "type": "llm"
+   }
+  }
+ },
+ "meta": {
+  "retrievers": {
+   "hybrid_rrf": {
+    "label": "Hybrid RRF",
+    "family": "hybrid",
+    "desc": "Reciprocal-rank fusion of SPLADE and ColBERT. Strongest retriever in this example."
+   },
+   "e5_large_v2": {
+    "label": "E5-large-v2",
+    "family": "dense",
+    "desc": "Dense passage retriever (intfloat/e5-large-v2)."
+   },
+   "splade_v3": {
+    "label": "SPLADE v3",
+    "family": "learned-sparse",
+    "desc": "Learned sparse retriever with term expansion."
+   },
+   "colbert_v2": {
+    "label": "ColBERT v2",
+    "family": "late-interaction",
+    "desc": "Token-level late-interaction retriever."
+   },
+   "bm25": {
+    "label": "BM25",
+    "family": "lexical",
+    "desc": "Classic lexical baseline over word unigrams."
+   }
+  },
+  "models": {
+   "gpt_4o": {
+    "label": "GPT-4o"
+   },
+   "llama_3_1_405b": {
+    "label": "Llama 3.1 405B"
+   },
+   "mistral_large_2": {
+    "label": "Mistral Large 2"
+   },
+   "qwen2_5_72b": {
+    "label": "Qwen 2.5 72B"
+   }
+  },
+  "annotators": {
+   "gold": {
+    "label": "Gold",
+    "type": "reference"
+   },
+   "spacy_en": {
+    "label": "spaCy (en_core_web_trf)",
+    "type": "encoder"
+   },
+   "stanza": {
+    "label": "Stanza",
+    "type": "encoder"
+   },
+   "flair": {
+    "label": "Flair",
+    "type": "encoder"
+   },
+   "gpt_4o_ie": {
+    "label": "GPT-4o (NER prompt)",
+    "type": "llm"
+   },
+   "claude_3_5_ie": {
+    "label": "Claude 3.5 Sonnet (NER prompt)",
+    "type": "llm"
+   }
+  },
+  "cognitive_types": {
+   "extract_fact": {
+    "label": "Extract fact",
+    "desc": "The answer is stated explicitly in the passage."
+   },
+   "inference": {
+    "label": "Inference",
+    "desc": "The answer requires combining or negating stated facts."
+   },
+   "numeric": {
+    "label": "Numeric reasoning",
+    "desc": "The answer hinges on a quantity or measurement."
+   },
+   "multi_hop": {
+    "label": "Multi-hop",
+    "desc": "The answer requires linking facts across sentences."
+   }
+  },
+  "settings": {
+   "open_corpus": {
+    "label": "Open-corpus",
+    "desc": "Retrieval runs over all texts, so it can surface passages from the wrong article."
+   },
+   "text_restricted": {
+    "label": "Text-restricted",
+    "desc": "Retrieval is limited to chunks from the correct source text."
+   },
+   "closed_book": {
+    "label": "Closed-book",
+    "desc": "The model answers from its own parameters, with no text provided."
+   },
+   "full_text_oracle": {
+    "label": "Full-text oracle",
+    "desc": "The model is given the entire correct source text. An upper bound."
+   },
+   "rag_text_restricted": {
+    "label": "RAG (text-restricted)",
+    "desc": "Retrieval limited to the correct text, then the model answers."
+   },
+   "rag_open_corpus": {
+    "label": "RAG (open-corpus)",
+    "desc": "Retrieval over the whole corpus, then the model answers. The realistic setting."
+   }
+  },
+  "retrieval_trap_classes": {
+   "critical_only": {
+    "label": "Critical only",
+    "color": "green",
+    "desc": "The retriever surfaced the evidence for the correct answer, and no distractor."
+   },
+   "both": {
+    "label": "Critical + distractor",
+    "color": "amber",
+    "desc": "The retriever surfaced both the correct evidence and a distractor."
+   },
+   "distractor_only": {
+    "label": "Distractor only",
+    "color": "red",
+    "desc": "The retriever surfaced a distractor but missed the correct evidence. The trap."
+   },
+   "neither": {
+    "label": "Neither",
+    "color": "gray",
+    "desc": "The retriever surfaced neither the correct evidence nor a distractor."
+   }
+  },
+  "regimes": {
+   "1": {
+    "label": "Named entities",
+    "note": "Encoder taggers win",
+    "desc": "People, organisations and places. Fine-tuned encoder taggers score highest."
+   },
+   "2": {
+    "label": "Quantities & time",
+    "note": "Roughly even",
+    "desc": "Numbers, measurements and dates. Encoders and LLMs are close."
+   },
+   "3": {
+    "label": "Discourse phenomena",
+    "note": "LLM taggers win",
+    "desc": "Negation and coreference. Large LLM taggers keep a clear edge."
+   }
+  },
+  "categories": {
+   "ent-person": {
+    "label": "Person",
+    "regime": 1,
+    "excluded": false,
+    "desc": "A named person."
+   },
+   "ent-org": {
+    "label": "Organisation",
+    "regime": 1,
+    "excluded": false,
+    "desc": "A named organisation or agency."
+   },
+   "ent-gpe": {
+    "label": "Place (GPE)",
+    "regime": 1,
+    "excluded": false,
+    "desc": "A geopolitical entity: country, region, or landmark."
+   },
+   "num-quantity": {
+    "label": "Quantity",
+    "regime": 2,
+    "excluded": false,
+    "desc": "A number, measurement, or amount."
+   },
+   "temporal": {
+    "label": "Temporal expression",
+    "regime": 2,
+    "excluded": false,
+    "desc": "A date, year, or time expression."
+   },
+   "negation": {
+    "label": "Negation cue",
+    "regime": 3,
+    "excluded": false,
+    "desc": "A word or phrase that negates or reverses a proposition."
+   },
+   "coref": {
+    "label": "Coreference",
+    "regime": 3,
+    "excluded": false,
+    "desc": "A pronoun or reference whose antecedent must be resolved."
+   }
+  },
+  "division_of_labour": {
+   "title": "Division of labour",
+   "items": [
+    {
+     "regime": 1,
+     "label": "Named entities",
+     "note": "(people, organisations, places): recovered by the encoder taggers, missed by the LLMs."
+    },
+    {
+     "regime": 3,
+     "label": "Discourse phenomena",
+     "note": "(e.g. negation and coreference): recovered by the LLM taggers, missed by the encoders."
+    }
+   ]
+  },
+  "flags": {
+   "live_retrieval_enabled": false
+  }
+ },
+ "retrieval": {
+  "en1_q00": [
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c003",
+      "rank": 1,
+      "score": 27.5904,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.5462,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.6108,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 4,
+      "score": 21.1694,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.2681,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 6,
+      "score": 17.6969,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c003",
+      "rank": 1,
+      "score": 27.4392,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.6088,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.8102,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 4,
+      "score": 20.991,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.5169,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 6,
+      "score": 17.7061,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.3811,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 2,
+      "score": 25.7566,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.6554,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 21.1001,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.4968,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 6,
+      "score": 17.5068,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.2898,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 2,
+      "score": 25.7244,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.9822,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 4,
+      "score": 21.0376,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.5974,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 6,
+      "score": 17.6246,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.2424,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 2,
+      "score": 25.772,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.7248,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 21.0909,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.2513,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 6,
+      "score": 17.7969,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c003",
+      "rank": 1,
+      "score": 27.4897,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.8177,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.6904,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 4,
+      "score": 21.1709,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.4683,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 6,
+      "score": 17.6134,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 7,
+      "score": 16.1142,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 8,
+      "score": 14.3905,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 9,
+      "score": 12.437,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 10,
+      "score": 10.7701,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 11,
+      "score": 9.2522,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.3646,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 2,
+      "score": 25.6939,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.6334,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 20.9071,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.245,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 6,
+      "score": 17.8332,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 7,
+      "score": 16.1102,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 8,
+      "score": 14.4781,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 9,
+      "score": 12.7321,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 10,
+      "score": 11.0616,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 11,
+      "score": 9.2137,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.5902,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 2,
+      "score": 25.7605,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.7917,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 4,
+      "score": 20.9616,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.5687,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 6,
+      "score": 17.7721,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 7,
+      "score": 16.0509,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 8,
+      "score": 14.1727,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 9,
+      "score": 12.5077,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 10,
+      "score": 11.0945,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 11,
+      "score": 9.1138,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c003",
+      "rank": 1,
+      "score": 27.3259,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.8572,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.7878,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 21.1139,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 5,
+      "score": 19.3694,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 6,
+      "score": 17.7547,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 7,
+      "score": 15.9505,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 8,
+      "score": 14.4452,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 9,
+      "score": 12.4978,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 10,
+      "score": 10.7036,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 11,
+      "score": 9.1083,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c003",
+      "rank": 1,
+      "score": 27.2387,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.6108,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.8946,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 4,
+      "score": 21.2568,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 5,
+      "score": 19.5246,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 6,
+      "score": 17.8401,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 7,
+      "score": 15.9498,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 8,
+      "score": 14.2688,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 9,
+      "score": 12.6786,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 10,
+      "score": 10.8593,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 11,
+      "score": 9.2039,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   }
+  ],
+  "en1_q01": [
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.4305,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.676,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.7692,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 4,
+      "score": 20.9249,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.5702,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.8343,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.4291,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.5772,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.8731,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 4,
+      "score": 21.1451,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.5527,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.6624,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.3013,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.6114,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 3,
+      "score": 22.9511,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 21.2,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.497,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 6,
+      "score": 17.7486,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.2344,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.6174,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.8926,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 4,
+      "score": 21.0247,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 5,
+      "score": 19.2036,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.8226,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.3094,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.8118,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.8371,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 4,
+      "score": 20.9273,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 5,
+      "score": 19.3542,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 6,
+      "score": 17.8902,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.3632,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.6706,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.9213,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 4,
+      "score": 21.1368,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.5531,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 6,
+      "score": 17.5216,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 7,
+      "score": 16.0705,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 8,
+      "score": 14.4749,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 9,
+      "score": 12.7081,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 10,
+      "score": 10.802,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 11,
+      "score": 9.044,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.4535,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.6047,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.8249,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 4,
+      "score": 21.2115,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.3955,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 6,
+      "score": 17.7447,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 7,
+      "score": 15.8903,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 8,
+      "score": 14.2477,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 9,
+      "score": 12.7449,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 10,
+      "score": 10.8551,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 11,
+      "score": 9.063,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.573,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.7313,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.8434,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 4,
+      "score": 20.9503,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 5,
+      "score": 19.3747,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 6,
+      "score": 17.5497,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 7,
+      "score": 15.8489,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 8,
+      "score": 14.1349,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 9,
+      "score": 12.7352,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 10,
+      "score": 10.7303,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 11,
+      "score": 9.1255,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.2903,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.689,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.97,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 21.2478,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 5,
+      "score": 19.3063,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 6,
+      "score": 17.5492,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 7,
+      "score": 15.8657,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 8,
+      "score": 14.1356,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 9,
+      "score": 12.5784,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 10,
+      "score": 10.9245,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 11,
+      "score": 9.1536,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c001",
+      "rank": 1,
+      "score": 27.4392,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 2,
+      "score": 25.8491,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.9916,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 4,
+      "score": 21.0134,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 5,
+      "score": 19.5896,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 6,
+      "score": 17.6637,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 7,
+      "score": 16.084,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 8,
+      "score": 14.3084,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 9,
+      "score": 12.4631,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 10,
+      "score": 10.7524,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 11,
+      "score": 9.2134,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   }
+  ],
+  "en1_q02": [
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.487,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 2,
+      "score": 25.6019,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.644,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 4,
+      "score": 20.9685,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 5,
+      "score": 19.3031,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 6,
+      "score": 17.6844,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.2572,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 2,
+      "score": 25.6978,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.9369,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 4,
+      "score": 21.0682,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 5,
+      "score": 19.3237,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.7618,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c005",
+      "rank": 1,
+      "score": 27.2727,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.5213,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.8104,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 4,
+      "score": 21.0911,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.2675,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 6,
+      "score": 17.5052,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c005",
+      "rank": 1,
+      "score": 27.2296,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.7364,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.6743,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 4,
+      "score": 20.9357,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.276,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.8705,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.2678,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 2,
+      "score": 25.5886,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 3,
+      "score": 22.8162,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 4,
+      "score": 21.2726,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 5,
+      "score": 19.2116,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 6,
+      "score": 17.8844,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.4634,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 2,
+      "score": 25.7401,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 3,
+      "score": 22.8556,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 4,
+      "score": 20.991,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 5,
+      "score": 19.4141,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 6,
+      "score": 17.8487,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 7,
+      "score": 15.9838,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 8,
+      "score": 14.2785,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 9,
+      "score": 12.6999,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 10,
+      "score": 10.9929,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 11,
+      "score": 9.3365,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c005",
+      "rank": 1,
+      "score": 27.4698,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.697,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.6162,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 4,
+      "score": 21.2825,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.325,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 6,
+      "score": 17.7768,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 7,
+      "score": 16.0863,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 8,
+      "score": 14.3967,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 9,
+      "score": 12.7563,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 10,
+      "score": 10.7378,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 11,
+      "score": 9.2899,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.2311,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 2,
+      "score": 25.6396,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.7814,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 4,
+      "score": 21.0715,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 5,
+      "score": 19.3324,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.6191,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 7,
+      "score": 16.101,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 8,
+      "score": 14.1908,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 9,
+      "score": 12.7478,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 10,
+      "score": 10.798,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 11,
+      "score": 9.2418,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c005",
+      "rank": 1,
+      "score": 27.256,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 2,
+      "score": 25.5652,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.6196,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 21.0076,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.2436,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 6,
+      "score": 17.5573,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 7,
+      "score": 15.9033,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 8,
+      "score": 14.3373,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 9,
+      "score": 12.6711,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 10,
+      "score": 10.8993,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 11,
+      "score": 9.3829,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 27.4816,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 2,
+      "score": 25.7288,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.6445,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 4,
+      "score": 21.2196,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 5,
+      "score": 19.2288,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 6,
+      "score": 17.6047,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 7,
+      "score": 16.0234,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 8,
+      "score": 14.4416,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 9,
+      "score": 12.7974,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 10,
+      "score": 10.9859,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 11,
+      "score": 9.0492,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   }
+  ],
+  "en2_q00": [
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.4028,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.8385,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.668,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 21.2568,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.5004,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.324,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.5721,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.6041,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 20.9274,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.2943,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.2749,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.6271,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.63,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.0803,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.2849,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.5318,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 2,
+      "score": 25.706,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.6924,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 20.968,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.5821,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.2891,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.7241,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.8665,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 20.9039,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.2453,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.518,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 2,
+      "score": 25.7759,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.8017,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 20.9573,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 5,
+      "score": 19.327,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 6,
+      "score": 17.6889,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 7,
+      "score": 16.145,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 8,
+      "score": 14.4954,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 9,
+      "score": 12.4627,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 10,
+      "score": 11.0027,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 11,
+      "score": 9.246,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.3317,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.8637,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.7408,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 21.0991,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 5,
+      "score": 19.405,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 6,
+      "score": 17.5101,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 7,
+      "score": 16.075,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 8,
+      "score": 14.4057,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 9,
+      "score": 12.6044,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 10,
+      "score": 10.7856,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 11,
+      "score": 9.0012,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.5408,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.7563,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.7278,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.2909,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 5,
+      "score": 19.2679,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 6,
+      "score": 17.6367,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 7,
+      "score": 15.9061,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 8,
+      "score": 14.3354,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 9,
+      "score": 12.4768,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 10,
+      "score": 10.9544,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 11,
+      "score": 9.0207,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.5402,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.5578,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.9917,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.073,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 5,
+      "score": 19.5431,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 6,
+      "score": 17.6418,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 7,
+      "score": 16.0057,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 8,
+      "score": 14.1489,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 9,
+      "score": 12.4445,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 10,
+      "score": 11.0627,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 11,
+      "score": 9.3962,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c002",
+      "rank": 1,
+      "score": 27.5298,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 25.7423,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 3,
+      "score": 22.7364,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.0698,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.5105,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 6,
+      "score": 17.7015,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 7,
+      "score": 16.1003,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 8,
+      "score": 14.2329,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 9,
+      "score": 12.4721,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 10,
+      "score": 11.0698,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 11,
+      "score": 9.1814,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   }
+  ],
+  "en2_q01": [
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.5141,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.3622,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.7357,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 4,
+      "score": 20.9339,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 5,
+      "score": 19.3582,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.3965,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.6336,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.6656,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.1402,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.5146,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.2062,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.4545,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.7295,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 21.1595,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 5,
+      "score": 19.5932,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.2591,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.4196,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.7958,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.2919,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 5,
+      "score": 19.2473,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.4518,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.4609,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.8001,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 4,
+      "score": 21.0107,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 5,
+      "score": 19.5309,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 26.3639,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 2,
+      "score": 24.5781,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 3,
+      "score": 22.9238,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 4,
+      "score": 20.9196,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 5,
+      "score": 19.4494,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 6,
+      "score": 19.0617,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 7,
+      "score": 15.9199,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 8,
+      "score": 14.2878,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 9,
+      "score": 12.7352,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 10,
+      "score": 11.0689,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 11,
+      "score": 9.0368,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.4922,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.4218,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 3,
+      "score": 22.9481,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 4,
+      "score": 21.1096,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.2694,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 6,
+      "score": 17.5997,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 7,
+      "score": 15.9304,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 8,
+      "score": 14.2491,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 9,
+      "score": 12.5602,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 10,
+      "score": 10.7574,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 11,
+      "score": 9.388,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.2151,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.5259,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 3,
+      "score": 22.8907,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 4,
+      "score": 21.1749,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 5,
+      "score": 19.495,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 6,
+      "score": 17.8164,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 7,
+      "score": 16.0638,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 8,
+      "score": 14.2264,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 9,
+      "score": 12.5104,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 10,
+      "score": 11.0312,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 11,
+      "score": 9.2394,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.5567,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 2,
+      "score": 24.4598,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 3,
+      "score": 22.9656,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 4,
+      "score": 21.0025,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 5,
+      "score": 19.5653,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 6,
+      "score": 17.7303,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 7,
+      "score": 15.9798,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 8,
+      "score": 14.1953,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 9,
+      "score": 12.494,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 10,
+      "score": 10.7782,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 11,
+      "score": 9.0383,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c000",
+      "rank": 1,
+      "score": 27.38,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 2,
+      "score": 24.5007,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.9797,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 4,
+      "score": 21.0462,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 5,
+      "score": 19.434,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 6,
+      "score": 17.6865,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 7,
+      "score": 15.9205,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 8,
+      "score": 14.2394,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 9,
+      "score": 12.6016,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 10,
+      "score": 10.9887,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 11,
+      "score": 9.3341,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   }
+  ],
+  "en2_q02": [
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.418,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.8826,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.8573,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 20.9874,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 5,
+      "score": 19.4281,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.2942,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.8439,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.7963,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.1805,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.2618,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.3299,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.6689,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.8862,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 21.2351,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 5,
+      "score": 19.4697,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.4577,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.511,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.982,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.0757,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.5369,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "text_restricted",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.2185,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.7808,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.6455,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 4,
+      "score": 20.9823,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.471,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "hybrid_rrf",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en1_c004",
+      "rank": 1,
+      "score": 26.1717,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 2,
+      "score": 24.4531,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 3,
+      "score": 22.7865,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 4,
+      "score": 20.9288,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 5,
+      "score": 19.3956,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 6,
+      "score": 18.9114,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c001",
+      "rank": 7,
+      "score": 17.3331,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 8,
+      "score": 14.1887,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 9,
+      "score": 12.691,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 10,
+      "score": 10.7475,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 11,
+      "score": 9.185,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "e5_large_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.3854,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.8719,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.737,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 4,
+      "score": 21.1883,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.5452,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 6,
+      "score": 17.7906,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 7,
+      "score": 16.1747,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 8,
+      "score": 14.3023,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 9,
+      "score": 12.6303,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 10,
+      "score": 10.7388,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 11,
+      "score": 9.1167,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "splade_v3",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.3804,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.7202,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.787,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 4,
+      "score": 20.9544,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 5,
+      "score": 19.3149,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 6,
+      "score": 17.7619,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 7,
+      "score": 15.9964,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 8,
+      "score": 14.2086,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 9,
+      "score": 12.7563,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 10,
+      "score": 10.8052,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 11,
+      "score": 9.379,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "colbert_v2",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.5867,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.763,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 3,
+      "score": 22.6051,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 4,
+      "score": 21.1427,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 5,
+      "score": 19.2334,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 6,
+      "score": 17.5602,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 7,
+      "score": 16.1068,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 8,
+      "score": 14.1629,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 9,
+      "score": 12.76,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 10,
+      "score": 10.7786,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 11,
+      "score": 9.3245,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   },
+   {
+    "retriever": "bm25",
+    "setting": "open_corpus",
+    "ranked_chunks": [
+     {
+      "chunk_id": "en2_c001",
+      "rank": 1,
+      "score": 27.5847,
+      "contains_critical": true,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c000",
+      "rank": 2,
+      "score": 25.6663,
+      "contains_critical": true,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c003",
+      "rank": 3,
+      "score": 22.9453,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c004",
+      "rank": 4,
+      "score": 21.1049,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en2_c002",
+      "rank": 5,
+      "score": 19.2453,
+      "contains_critical": false,
+      "contains_distractor": true
+     },
+     {
+      "chunk_id": "en2_c004",
+      "rank": 6,
+      "score": 17.8138,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c002",
+      "rank": 7,
+      "score": 16.1996,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c005",
+      "rank": 8,
+      "score": 14.1046,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c003",
+      "rank": 9,
+      "score": 12.4051,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c001",
+      "rank": 10,
+      "score": 10.8323,
+      "contains_critical": false,
+      "contains_distractor": false
+     },
+     {
+      "chunk_id": "en1_c000",
+      "rank": 11,
+      "score": 9.1091,
+      "contains_critical": false,
+      "contains_distractor": false
+     }
+    ]
+   }
+  ]
+ },
+ "guide": {
+  "_note": "Bundled guide for the example dataset: titles, onboarding, and two guided cases over the English corpus.",
+  "intro": {
+   "title": "Example dataset: MiniWiki-EN",
+   "tagline": "The same workbench, a completely different study — English encyclopedia text, other retrievers, other LLMs, an entity-and-discourse tagging task.",
+   "paragraphs": [
+    "This is the downloadable example bundle. It shares nothing with the Luxembourgish reference dataset except the JSON schema: different language, different retrievers (BM25, SPLADE v3, ColBERT v2, E5-large-v2, hybrid RRF), different QA models (GPT-4o, Llama 3.1 405B, Mistral Large 2, Qwen 2.5 72B), and a different annotation taxonomy (named entities and discourse phenomena tagged by spaCy, Stanza and Flair versus GPT-4o and Claude 3.5 Sonnet prompted for tagging).",
+    "Every panel you see is rendered purely from this file. That is the point: the interface is a reusable shell for evidence-grounded diagnostic studies, not a viewer hardwired to one corpus."
+   ],
+   "how_to_read": [
+    "Pick a question on the left; the passage and all four panels re-render on it.",
+    "Green marks the evidence for the correct answer, red marks a distractor.",
+    "Switch tabs to see retrieval, model answers, the retrieval-trap chart, and the annotation matrix."
+   ]
+  },
+  "text_glosses": {
+   "en1": {
+    "title_en": "The Voyager Program",
+    "summary_en": "How NASA's two Voyager probes were built, where they flew, and how they still speak to Earth."
+   },
+   "en2": {
+    "title_en": "The Great Barrier Reef",
+    "summary_en": "The scale, ecology, and fragility of the world's largest coral reef system."
+   }
+  },
+  "featured": [
+   {
+    "id": "ex-how-it-works",
+    "title": "1 · How the workbench works",
+    "blurb": "A question the system gets right, to learn the layout.",
+    "selection": {
+     "question_id": "en1_q00",
+     "retriever": "hybrid_rrf",
+     "setting": "open_corpus",
+     "k": 5,
+     "tab": "retrieval"
+    },
+    "gloss": {
+     "question_en": "In which year did Voyager 1 enter interstellar space?",
+     "answer_en": "Correct answer (C): 2012.",
+     "evidence_en": "The green span reads 'In 2012 Voyager 1 crossed the heliopause and entered interstellar space'."
+    },
+    "look_for": [
+     "The passage is highlighted: green is the evidence for the correct answer, red is a distractor date.",
+     "In the Retrieval panel the top chunk carries a green dot — the retriever surfaced the evidence.",
+     "On the Answering tab, with the evidence retrieved, the stronger models answer correctly."
+    ]
+   },
+   {
+    "id": "ex-division-of-labour",
+    "title": "2 · Encoders vs LLM taggers",
+    "blurb": "Where fine-tuned taggers and LLMs each win.",
+    "selection": {
+     "question_id": "en2_q02",
+     "retriever": "hybrid_rrf",
+     "setting": "open_corpus",
+     "k": 5,
+     "tab": "annotation"
+    },
+    "gloss": {
+     "question_en": "Is the Great Barrier Reef a single living organism?",
+     "answer_en": "Correct answer (B): No — it is built by billions of coral polyps.",
+     "evidence_en": "The negation cue 'not a single organism' is what the LLM taggers catch and the encoders miss."
+    },
+    "look_for": [
+     "Open the Annotation tab: encoder taggers dominate the entity rows, LLM taggers dominate negation and coreference.",
+     "The per-category F1 table shows the same split numerically.",
+     "This is the 'division of labour' the callout summarises — and it is read entirely from the uploaded file."
+    ]
+   }
+  ],
+  "about": {
+   "intro": "This example is a data-driven instantiation of the same shell. It renders whatever lives in the uploaded bundle against a fixed JSON schema, so any study that shares one character-offset coordinate system over its texts gets the same four linked panels. MiniWiki-EN is a deliberately different instantiation from the Luxembourgish reference.",
+   "reuse": [
+    "Upload a bundle of your own study outputs and watch every panel re-render on it, or replace the files in public/data/ for a permanent deployment.",
+    "Every layer indexes into each text's clean_text, so a retrieved chunk, an evidence span, and an annotated token all speak the same coordinates.",
+    "Nothing in the interface is specific to any one language, model set, or label set — this English example is the proof."
+   ],
+   "schema": [
+    {
+     "file": "texts",
+     "desc": "The source passages. Each clean_text defines the shared coordinate system."
+    },
+    {
+     "file": "questions",
+     "desc": "MCQs with gold answers and critical/distractor character spans."
+    },
+    {
+     "file": "chunks",
+     "desc": "Offset-preserving passages the retrievers rank."
+    },
+    {
+     "file": "answers",
+     "desc": "One record per question x model x setting, with the retrieval-trap class."
+    },
+    {
+     "file": "annotations",
+     "desc": "Per (text, category) gold occurrences and each tagger's surface predictions."
+    },
+    {
+     "file": "aggregates",
+     "desc": "Corpus-level curves, trap classes, and per-category / aggregate F1."
+    },
+    {
+     "file": "meta",
+     "desc": "The vocabularies: retrievers, models, annotators, categories, regimes, settings."
+    },
+    {
+     "file": "retrieval",
+     "desc": "Per-question ranked chunks per retriever x scope."
+    }
+   ],
+   "links": [
+    {
+     "label": "Source code",
+     "url": "https://github.com/RedPill47/luxdiag-workbench"
+    },
+    {
+     "label": "Live demo",
+     "url": "https://luxdiag-workbench.vercel.app"
+    }
+   ],
+   "licensing": "Example data is synthetic and released CC0 for demonstration. Code: MIT."
+  }
+ }
+}

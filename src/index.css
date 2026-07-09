@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Restrained academic-modern palette (brief §7).
+   One accent colour; the four trap-class colours are the only other
+   place colour carries meaning. Everything else stays neutral. */
+@theme {
+  --color-accent: #2f5d8a; /* muted slate-blue accent */
+  --color-accent-soft: #eaf1f8;
+
+  /* Trap-class semantic colours (green / amber / red / gray) */
+  --color-trap-critical: #2f8a5b; /* critical_only  */
+  --color-trap-both: #c98a1e; /* both           */
+  --color-trap-distractor: #c0453b; /* distractor_only */
+  --color-trap-neither: #6b7280; /* neither        */
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-stone-50 text-stone-800 antialiased;
+}
