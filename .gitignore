@@ -6,3 +6,8 @@ dist/
 .vercel
 *.local
 .DS_Store
+
+# Export intermediates
+export/out/
+export/backups-*/
+__pycache__/
