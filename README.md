@@ -9,6 +9,8 @@ examined together, one example at a time.
 
 **Live demo:** https://luxdiag-workbench.vercel.app
 
+**Demo Video:** https://youtu.be/ku5oE6Tuv6E
+
 The reference instantiation overlays two Luxembourgish studies over 16
 native-authored texts: a 640-question evidence-grounded reading-comprehension
 study and an encoder-versus-LLM token-annotation study. But the interface is a
