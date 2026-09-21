@@ -9,6 +9,8 @@ Builds the JSON bundle in `public/data/` from the two source studies.
 | `split_retrieval.py` | splits `out/retrieval.json` into per-question files the app lazy-loads |
 | `revision_analysis.py` | reconciliation coverage, retrieval-trap table, accuracy by annotation category |
 | `make_recall_figure.py` | regenerates the evidence-recall figure from the aggregates |
+| `ngram_density_bootstrap.py` | tests whether the character-n-gram advantage varies by linguistic category (it does not) |
+| `scalability_bench.py` / `.mjs` | builds scaled synthetic bundles and times the upfront load path |
 
 The two export scripts read the upstream study repositories; point them there
 with `DIAGLUX_ROOT` and `LUX_ROOT` (defaults assume `~/DiagLux-RAG` and
