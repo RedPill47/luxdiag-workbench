@@ -8,6 +8,7 @@ import AnsweringPanel from "../components/AnsweringPanel.jsx";
 import RetrievalTrapExplorer from "../components/RetrievalTrapExplorer.jsx";
 import AnnotationPanel from "../components/AnnotationPanel.jsx";
 import Onboarding from "../components/Onboarding.jsx";
+import Home from "../components/Home.jsx";
 import GuideCard from "../components/GuideCard.jsx";
 import Glossary from "../components/Glossary.jsx";
 import Playground from "../components/Playground.jsx";
@@ -32,6 +33,13 @@ function readUrlState() {
 }
 
 const INTRO_SEEN_KEY = "luxdiag_intro_seen_v1";
+
+// A shared link encodes a specific view, so it must open on that view rather
+// than on the landing page. Evaluated once at module load, before the
+// URL-mirroring effect below starts adding parameters of its own.
+const ARRIVED_ON_DEEP_LINK = ["q", "r", "s", "k", "tab", "mode"].some((key) =>
+  new URLSearchParams(window.location.search).has(key)
+);
 
 const PANEL_TABS = [
   { id: "retrieval", label: "Retrieval" },
@@ -66,6 +74,8 @@ export default function App() {
   const [glossary, setGlossary] = useState(null); // {focus: term|null} when open, else null
   const [mode, setMode] = useState(() => readUrlState().mode ?? "studies"); // "studies" | "playground"
   const [showUseData, setShowUseData] = useState(false);
+  // "home" = the landing page; "tool" = the workbench itself.
+  const [view, setView] = useState(() => (ARRIVED_ON_DEEP_LINK ? "tool" : "home"));
 
   const openGlossary = (focus = null) => setGlossary({ focus });
 
@@ -84,7 +94,12 @@ export default function App() {
           setting: d.meta.settings?.[s.setting] ? s.setting : DEFAULT_SELECTION.setting,
         }));
         // Show onboarding on first visit if a guide is present.
-        if (d.guide && !localStorage.getItem(INTRO_SEEN_KEY)) setShowIntro(true);
+        if (
+          d.guide &&
+          ARRIVED_ON_DEEP_LINK &&
+          !localStorage.getItem(INTRO_SEEN_KEY)
+        )
+          setShowIntro(true);
       })
       .catch((e) => setError(String(e)));
   }, []);
@@ -92,6 +107,9 @@ export default function App() {
   // Mirror the shareable view state into the URL (replaceState = no history spam).
   useEffect(() => {
     if (!data) return;
+    // Don't write view state while the landing page is showing: a reload there
+    // should stay on the landing page, not jump into the tool.
+    if (view === "home") return;
     const p = new URLSearchParams();
     if (selection.question_id) p.set("q", selection.question_id);
     p.set("r", selection.retriever);
@@ -100,7 +118,7 @@ export default function App() {
     p.set("tab", activeTab);
     if (mode !== "studies") p.set("mode", mode);
     window.history.replaceState(null, "", `${window.location.pathname}?${p.toString()}`);
-  }, [data, selection.question_id, selection.retriever, selection.setting, selection.k, activeTab, mode]);
+  }, [data, view, selection.question_id, selection.retriever, selection.setting, selection.k, activeTab, mode]);
 
   const featured = data?.guide?.featured ?? [];
   const activeCase = caseIndex != null ? featured[caseIndex] ?? null : null;
@@ -249,6 +267,54 @@ export default function App() {
 
   const meta = data?.meta;
 
+  function enterTool() {
+    localStorage.setItem(INTRO_SEEN_KEY, "1");
+    setView("tool");
+  }
+
+  if (view === "home") {
+    return (
+      <>
+        {glossary && (
+          <Glossary
+            meta={data?.meta}
+            glossary={data?.guide?.glossary}
+            focusKey={glossary.focus}
+            onClose={() => setGlossary(null)}
+          />
+        )}
+        {showUseData && (
+          <UseYourData
+            about={data?.guide?.about}
+            data={data}
+            question={question}
+            onClose={() => setShowUseData(false)}
+            onPastePassage={() => {
+              setMode("playground");
+              setShowUseData(false);
+              enterTool();
+            }}
+            onLoadDataset={(...args) => {
+              loadCustomDataset(...args);
+              enterTool();
+            }}
+          />
+        )}
+        <Home
+          data={data}
+          onEnter={enterTool}
+          onTour={() => {
+            enterTool();
+            setMode("studies");
+            applyCase(0);
+          }}
+          onUseYourData={() => setShowUseData(true)}
+          onGlossary={() => openGlossary(null)}
+        />
+      </>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       {showIntro && (
@@ -283,10 +349,24 @@ export default function App() {
         <div className="mx-auto flex max-w-[100rem] items-center justify-between gap-4 px-6 py-4">
           <div>
             <h1 className="text-lg font-semibold tracking-tight text-stone-900">
-              LuxDiag Workbench
+              <button
+                type="button"
+                onClick={() => setView("home")}
+                title="Back to the overview: what this is, who it is for, what it does"
+                className="text-left transition hover:text-accent"
+              >
+                LuxDiag Workbench
+              </button>
             </h1>
             <p className="text-sm text-stone-500">
-              Diagnostic RAG &amp; annotation explorer over LuxDiagRC
+              Diagnostic RAG &amp; annotation explorer over LuxDiagRC{" "}
+              <button
+                type="button"
+                onClick={() => setView("home")}
+                className="text-accent underline underline-offset-2 hover:text-stone-700"
+              >
+                overview
+              </button>
             </p>
           </div>
           {data?.guide && (
